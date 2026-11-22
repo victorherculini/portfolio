@@ -81,7 +81,7 @@
 
       'fact.nameL': 'Nome',
       'fact.ageL': 'Idade',
-      'fact.ageV': '20 anos',
+      'fact.ageV': '21 anos',
       'fact.locL': 'Local',
       'fact.eduL': 'Formação',
       'fact.eduV': 'ADS · IFSP Araraquara',
