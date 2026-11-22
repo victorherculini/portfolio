@@ -1,511 +1,841 @@
 ﻿<!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="noir">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Victor Herculini — Portfolio</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;700&family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&display=swap" rel="stylesheet">
-<link rel="icon" type="image/png" href="pictures/favicon.png">
-<link rel="apple-touch-icon" href="pictures/favicon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Victor Herculini — Software, AI &amp; Ventures</title>
+  <meta name="description" content="Victor Rodrigues Herculini — Desenvolvedor de Software (Web & Mobile), AI Developer & Operator, E-Commerce, Tráfego Pago & Founder. AI-native, stack-agnostic. São Carlos, SP.">
+  <meta name="author" content="Victor Rodrigues Herculini">
+  <meta name="theme-color" content="#0d0b08" id="metaThemeColor">
 
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://victorherculini.vercel.app/">
+  <meta property="og:title" content="Victor Herculini — Software, AI &amp; Ventures">
+  <meta property="og:description" content="Desenvolvedor de software Web & Mobile, AI Developer & Operator, E-Commerce, Tráfego Pago e Founder. Always learning. Always shipping.">
+  <meta property="og:image" content="https://victorherculini.vercel.app/pictures/favicon.png">
+  <meta name="twitter:card" content="summary_large_image">
 
+  <link rel="icon" type="image/png" href="pictures/favicon.png">
+  <link rel="apple-touch-icon" href="pictures/favicon.png">
 
+  <!-- Editorial Typography: Fraunces + Instrument Serif + Geist + JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..800,0..100;1,9..144,300..600,0..100&display=swap" rel="stylesheet">
+
+  <!-- Prevent theme flash before paint -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('vh_editorial_theme');
+        if (saved === 'noir' || saved === 'aurora' || saved === 'paper') {
+          document.documentElement.setAttribute('data-theme', saved);
+          var colors = { noir: '#0d0b08', aurora: '#07090e', paper: '#f5f2eb' };
+          var meta = document.getElementById('metaThemeColor');
+          if (meta) meta.setAttribute('content', colors[saved]);
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Structured Data (SEO) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Victor Rodrigues Herculini",
+      "alternateName": "Victor Herculini",
+      "url": "https://victorherculini.vercel.app/",
+      "jobTitle": "Software Developer, AI Developer & Operator, Founder",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "São Carlos",
+        "addressRegion": "SP",
+        "addressCountry": "BR"
+      },
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "IFSP Araraquara — Análise e Desenvolvimento de Sistemas"
+      },
+      "sameAs": [
+        "https://github.com/victorherculini",
+        "https://www.linkedin.com/in/victor-herculini",
+        "https://www.instagram.com/victorherculini/"
+      ]
+    }
+  </script>
 
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body data-theme="aurora" data-density="normal" data-intensity="bold">
+<body class="cursor-on">
 
-<!-- ===== AMBIENT FLOATING SHAPES ===== -->
-<div class="float-shape float-shape--1"></div>
-<div class="float-shape float-shape--2"></div>
-<div class="float-shape float-shape--3"></div>
-
-<!-- ===== CUSTOM CURSOR ===== -->
-<div class="cursor" id="cursor"></div>
-
-<!-- ===== SCROLL PROGRESS ===== -->
-<div class="scroll-progress"><div class="scroll-progress__bar" id="progress"></div></div>
-
-<!-- ===== NAV ===== -->
-<nav class="nav" id="nav">
-  <div class="container">
-    <div class="nav__inner">
-      <a href="#top" class="nav__logo">Victor Herculini ✱</a>
-      <div class="nav__links">
-        <a href="#about" class="nav__link"><span class="num">01</span>Sobre</a>
-        <a href="#work" class="nav__link"><span class="num">02</span>Trabalhos</a>
-        <a href="#vision" class="nav__link"><span class="num">03</span>Visão</a>
-        <a href="#contact" class="nav__link"><span class="num">04</span>Contato</a>
-      </div>
-      <a href="#contact" class="nav__cta"><span class="nav__cta__dot"></span>Disponível</a>
-    </div>
+  <!-- ===== AMBIENT FLOATING ORBS ===== -->
+  <div class="ambient" aria-hidden="true">
+    <div class="float-shape float-shape--1"></div>
+    <div class="float-shape float-shape--2"></div>
+    <div class="float-shape float-shape--3"></div>
   </div>
-</nav>
 
-<!-- ===== HERO ===== -->
-<header class="hero" id="top">
-  <div class="container">
-    <div class="hero__meta">
-      <span class="hero__meta__dot"></span>
-      <span>VH · 001 / Portfolio · 2026</span>
-      <span class="hero__meta__line"></span>
-      <span>São Carlos · SP · BR</span>
-    </div>
+  <!-- ===== CUSTOM CURSOR ===== -->
+  <div class="cursor" id="cursor" aria-hidden="true">
+    <span class="cursor__label" id="cursorLabel"></span>
+  </div>
 
-    <div class="hero__avatar">
-      <span class="hero__avatar__img"></span>
-      <span class="hero__avatar__pulse"></span>
-      <span>Aberto a oportunidades</span>
-    </div>
+  <!-- ===== SCROLL PROGRESS ===== -->
+  <div class="scroll-progress" aria-hidden="true">
+    <div class="scroll-progress__bar" id="progress"></div>
+  </div>
 
-    <h1 class="hero__title" id="heroTitle">
-      <span class="reveal-line"><span>Desenvolvedor</span></span>
-      <span class="reveal-line"><span>de software,</span></span>
-      <span class="reveal-line"><span><em>obcecado</em> pelo progresso.</span></span>
-    </h1>
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav" id="nav" aria-label="Navegação principal">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="#top" class="nav__logo" data-cursor="hover">Victor Herculini ✱</a>
 
-    <div class="hero__row">
-      <p class="hero__intro reveal">
-        <strong>Victor Rodrigues Herculini</strong> — estudante de ADS no IFSP.
-        Construo software pensando em arquitetura, legibilidade e na experiência de quem usa.
-        Java, Kotlin, JavaScript, Mobile, MySQL.
-      </p>
-      <div class="hero__side" data-stagger>
-        <div class="hero__side__stat">
-          <span class="hero__side__stat__num">5+</span>
-          <span class="hero__side__stat__label">Projetos entregues</span>
+        <div class="nav__links">
+          <a href="#about" class="nav__link" data-nav="about"><span class="num">01</span><span data-i18n="nav.about">Sobre</span></a>
+          <a href="#focus" class="nav__link" data-nav="focus"><span class="num">02</span><span data-i18n="nav.focus">Atuação</span></a>
+          <a href="#workflow" class="nav__link" data-nav="workflow"><span class="num">03</span><span data-i18n="nav.workflow">Processo</span></a>
+          <a href="#work" class="nav__link" data-nav="work"><span class="num">04</span><span data-i18n="nav.work">Trabalhos</span></a>
+          <a href="#vision" class="nav__link" data-nav="vision"><span class="num">05</span><span data-i18n="nav.vision">Visão</span></a>
+          <a href="#contact" class="nav__link" data-nav="contact"><span class="num">06</span><span data-i18n="nav.contact">Contato</span></a>
         </div>
-        <div class="hero__side__stat">
-          <span class="hero__side__stat__num">3+</span>
-          <span class="hero__side__stat__label">Anos estudando</span>
-        </div>
-        <div class="hero__side__stat">
-          <span class="hero__side__stat__num">11</span>
-          <span class="hero__side__stat__label">Stacks dominadas</span>
+
+        <div class="nav__right">
+          <button type="button" class="nav__pill-btn" id="openCmdPalette" aria-label="Abrir paleta de comandos (Ctrl+K)" data-cursor="hover">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <kbd class="kbd">⌘K</kbd>
+          </button>
+
+          <!-- Clean Theme Dots (Noir · Aurora · Paper) -->
+          <div class="theme-dots" role="group" aria-label="Tema visual">
+            <button type="button" class="theme-dot theme-dot--noir" data-set-theme="noir" title="Noir (Editorial)" aria-label="Tema Noir" data-cursor="hover"></button>
+            <button type="button" class="theme-dot theme-dot--aurora" data-set-theme="aurora" title="Aurora (Deep Ink)" aria-label="Tema Aurora" data-cursor="hover"></button>
+            <button type="button" class="theme-dot theme-dot--paper" data-set-theme="paper" title="Paper (Claro)" aria-label="Tema Claro" data-cursor="hover"></button>
+          </div>
+
+          <button type="button" class="nav__pill-btn nav__lang" id="langToggle" aria-label="Alternar idioma PT/EN" data-cursor="hover">PT</button>
+
+          <a href="#contact" class="nav__cta magnetic" data-cursor="hover">
+            <span class="nav__cta__dot" aria-hidden="true"></span>
+            <span data-i18n="nav.cta">Disponível</span>
+          </a>
+
+          <button type="button" class="nav__burger" id="mobileMenuToggle" aria-label="Abrir menu" aria-expanded="false">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          </button>
         </div>
       </div>
     </div>
-  </div>
+  </nav>
 
-  <div class="hero__scroll">
-    <span>scroll</span>
-    <span class="hero__scroll__line"></span>
-  </div>
-</header>
-
-<!-- ===== MARQUEE ===== -->
-<div class="marquee">
-  <div class="marquee__track">
-    <!-- duplicated 2× for infinite loop -->
-    <span class="marquee__item">Java<span class="marquee__item__dot"></span></span>
-    <span class="marquee__item">Kotlin<span class="marquee__item__dot"></span></span>
-    <span class="marquee__item">JavaScript<span class="marquee__item__dot"></span></span>
-    <span class="marquee__item">Mobile<span class="marquee__item__dot"></span></span>
-    <span class="marquee__item">Python<span class="marquee__item__dot"></span></span>
-    <span class="marquee__item">MySQL<span class="marquee__item__dot"></span></span>
-    <span class="marquee__item">JSP<span class="marquee__item__dot"></span></span>
-    <span class="marquee__item">Git<span class="marquee__item__dot"></span></span>
-    <span class="marquee__item">Linux<span class="marquee__item__dot"></span></span>
-    <span class="marquee__item">HTML / CSS<span class="marquee__item__dot"></span></span>
-    <span class="marquee__item">Clean Code<span class="marquee__item__dot"></span></span>
-    <!-- duplicate -->
-    <span class="marquee__item">Java<span class="marquee__item__dot"></span></span>
-    <span class="marquee__item">Kotlin<span class="marquee__item__dot"></span></span>
-    <span class="marquee__item">JavaScript<span class="marquee__item__dot"></span></span>
-    <span class="marquee__item">Mobile<span class="marquee__item__dot"></span></span>
-    <span class="marquee__item">Python<span class="marquee__item__dot"></span></span>
-    <span class="marquee__item">MySQL<span class="marquee__item__dot"></span></span>
-    <span class="marquee__item">JSP<span class="marquee__item__dot"></span></span>
-    <span class="marquee__item">Git<span class="marquee__item__dot"></span></span>
-    <span class="marquee__item">Linux<span class="marquee__item__dot"></span></span>
-    <span class="marquee__item">HTML / CSS<span class="marquee__item__dot"></span></span>
-    <span class="marquee__item">Clean Code<span class="marquee__item__dot"></span></span>
-  </div>
-</div>
-
-<!-- ===== ABOUT ===== -->
-<section class="about" id="about" data-screen-label="02 Sobre">
-  <div class="container">
-    <div class="kicker reveal">
-      <span class="kicker__num">01</span>
-      <span class="kicker__line"></span>
-      Sobre
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+    <div class="mobile-drawer__panel">
+      <div class="mobile-drawer__head">
+        <span class="mono-kicker">VH · MENU</span>
+        <button type="button" class="mobile-drawer__close" id="mobileMenuClose" aria-label="Fechar menu">✕</button>
+      </div>
+      <div class="mobile-drawer__links">
+        <a href="#about" class="mobile-drawer__link"><span class="num">01</span><span data-i18n="nav.about">Sobre</span></a>
+        <a href="#focus" class="mobile-drawer__link"><span class="num">02</span><span data-i18n="nav.focus">Atuação</span></a>
+        <a href="#workflow" class="mobile-drawer__link"><span class="num">03</span><span data-i18n="nav.workflow">Processo</span></a>
+        <a href="#work" class="mobile-drawer__link"><span class="num">04</span><span data-i18n="nav.work">Trabalhos</span></a>
+        <a href="#vision" class="mobile-drawer__link"><span class="num">05</span><span data-i18n="nav.vision">Visão</span></a>
+        <a href="#contact" class="mobile-drawer__link"><span class="num">06</span><span data-i18n="nav.contact">Contato</span></a>
+      </div>
+      <div class="mobile-drawer__controls">
+        <div class="theme-dots theme-dots--lg" role="group" aria-label="Tema">
+          <button type="button" class="theme-dot theme-dot--noir" data-set-theme="noir" aria-label="Noir"></button>
+          <button type="button" class="theme-dot theme-dot--aurora" data-set-theme="aurora" aria-label="Aurora"></button>
+          <button type="button" class="theme-dot theme-dot--paper" data-set-theme="paper" aria-label="Paper"></button>
+        </div>
+        <button type="button" class="nav__pill-btn" id="mobileCmdBtn"><span>⌘K</span></button>
+      </div>
     </div>
+  </div>
 
-    <div class="about__grid">
-      <div class="about__sticky reveal reveal--left">
-        <div class="about__photo">
-          <img src="pictures/me/mee.png" alt="Victor Herculini" class="about__photo__img">
-          <span class="about__photo__deco"></span>
-          <span class="about__photo__grid-line"></span>
-          <span class="about__photo__grid-line about__photo__grid-line--h"></span>
-          <span class="about__photo__crosshair"></span>
-          <span class="about__photo__seal">VH</span>
-          <span class="about__photo__corner"></span>
+  <!-- ===== HERO ===== -->
+  <header class="hero" id="top">
+    <div class="container">
+      <div class="hero__meta">
+        <span class="hero__meta__dot" aria-hidden="true"></span>
+        <span>VH · 001 / Portfolio · <span data-current-year>2026</span></span>
+        <span class="hero__meta__line" aria-hidden="true"></span>
+        <span>São Carlos · SP · BR</span>
+        <span class="hero__meta__clock" id="liveClock">--:-- BRT</span>
+      </div>
+
+      <div class="hero__top-pills">
+        <div class="hero__avatar">
+          <span class="hero__avatar__img" aria-hidden="true"></span>
+          <span class="hero__avatar__pulse" aria-hidden="true"></span>
+          <span data-i18n="hero.status">Shipping · Aberto a oportunidades</span>
+        </div>
+
+        <div class="hero__role-pill" aria-live="polite">
+          <span class="hero__role-pill__label" data-i18n="hero.rolePrefix">Foco</span>
+          <span class="hero__role-rotator">
+            <span class="hero__role-item is-active" data-i18n="hero.role0">Software · Web &amp; Mobile</span>
+            <span class="hero__role-item" data-i18n="hero.role1">AI Developer &amp; Operator</span>
+            <span class="hero__role-item" data-i18n="hero.role2">E-Commerce &amp; Paid Traffic</span>
+            <span class="hero__role-item" data-i18n="hero.role3">Founder · AI-Native</span>
+          </span>
         </div>
       </div>
 
-      <div>
-        <p class="about__bio" id="aboutBio">
-          <span>Construo</span> <span>software</span> <span class="about__bio__highlight">robusto</span>
-          <span>e</span> <span>orientado</span> <span>a</span>
-          <span>resultados</span><span>.</span> <span>Foco</span>
-          <span>em</span> <span>arquitetura,</span>
-          <span class="about__bio__highlight">clean&nbsp;code</span>
-          <span>e</span> <span>boas</span> <span>práticas</span> <span>de</span>
-          <span>engenharia</span><span>—</span>
-          <span>código</span> <span>que</span> <span>seja</span>
-          <span>legível,</span> <span>escalável</span> <span>e</span>
-          <span>centrado</span> <span>em</span> <span>quem</span>
-          <span>o</span> <span>usa.</span>
+      <h1 class="hero__title" id="heroTitle">
+        <span class="reveal-line"><span data-i18n="hero.line1">Desenvolvedor</span></span>
+        <span class="reveal-line"><span data-i18n="hero.line2">de software &amp; IA,</span></span>
+        <span class="reveal-line"><span data-i18n-html="hero.line3"><em>obcecado</em> por lançar.</span></span>
+      </h1>
+
+      <div class="hero__row">
+        <div class="hero__left">
+          <p class="hero__intro reveal" data-i18n-html="hero.intro">
+            <strong>Victor Rodrigues Herculini</strong> — estudante de ADS no IFSP Araraquara, desenvolvedor Web &amp; Mobile, operador de IA, e-commerce, tráfego pago e fundador.
+            <strong>AI-native e stack-agnostic</strong>: construo arquitetura limpa e produtos completos com a ferramenta certa para cada problema.
+          </p>
+          <div class="hero__actions reveal">
+            <a href="#work" class="btn-editorial btn-editorial--primary magnetic" data-cursor="hover">
+              <span data-i18n="hero.ctaWork">Ver projetos</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <a href="#contact" class="btn-editorial btn-editorial--ghost magnetic" data-cursor="hover">
+              <span data-i18n="hero.ctaContact">Me chama</span>
+            </a>
+            <a href="#github-live" class="hero__live-chip" id="heroLiveChip" data-cursor="hover">
+              <span class="hero__live-chip__dot" aria-hidden="true"></span>
+              <span id="heroLiveText">GitHub Sync · @victorherculini</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero__side" data-stagger>
+          <div class="hero__side__stat">
+            <span class="hero__side__stat__num" id="statRepos" data-target="27" data-suffix="+">27+</span>
+            <span class="hero__side__stat__label" data-i18n="stats.repos">Repositórios GitHub</span>
+          </div>
+          <div class="hero__side__stat">
+            <span class="hero__side__stat__num" data-target="6" data-suffix="">06</span>
+            <span class="hero__side__stat__label" data-i18n="stats.pillars">Pilares de atuação</span>
+          </div>
+          <div class="hero__side__stat">
+            <span class="hero__side__stat__num" data-target="3" data-suffix="+">3+</span>
+            <span class="hero__side__stat__label" data-i18n="stats.years">Anos construindo</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero__scroll" aria-hidden="true">
+      <span>scroll</span>
+      <span class="hero__scroll__line"></span>
+    </div>
+  </header>
+
+  <!-- ===== EDITORIAL MARQUEE (Tech + What I Build & Operate) ===== -->
+  <div class="marquee" aria-label="O que construo e opero">
+    <div class="marquee__track">
+      <span class="marquee__item">Web &amp; Mobile<span class="marquee__item__dot"></span></span>
+      <span class="marquee__item">AI Agents<span class="marquee__item__dot"></span></span>
+      <span class="marquee__item">SaaS &amp; MVPs<span class="marquee__item__dot"></span></span>
+      <span class="marquee__item">Automations<span class="marquee__item__dot"></span></span>
+      <span class="marquee__item">E-Commerce<span class="marquee__item__dot"></span></span>
+      <span class="marquee__item">Paid Traffic<span class="marquee__item__dot"></span></span>
+      <span class="marquee__item">Sales Funnels<span class="marquee__item__dot"></span></span>
+      <span class="marquee__item">Dashboards &amp; APIs<span class="marquee__item__dot"></span></span>
+      <span class="marquee__item">CRO &amp; Tracking<span class="marquee__item__dot"></span></span>
+      <span class="marquee__item">Clean Architecture<span class="marquee__item__dot"></span></span>
+      <span class="marquee__item">Stack-Agnostic<span class="marquee__item__dot"></span></span>
+      <!-- Duplicate for seamless loop -->
+      <span class="marquee__item" aria-hidden="true">Web &amp; Mobile<span class="marquee__item__dot"></span></span>
+      <span class="marquee__item" aria-hidden="true">AI Agents<span class="marquee__item__dot"></span></span>
+      <span class="marquee__item" aria-hidden="true">SaaS &amp; MVPs<span class="marquee__item__dot"></span></span>
+      <span class="marquee__item" aria-hidden="true">Automations<span class="marquee__item__dot"></span></span>
+      <span class="marquee__item" aria-hidden="true">E-Commerce<span class="marquee__item__dot"></span></span>
+      <span class="marquee__item" aria-hidden="true">Paid Traffic<span class="marquee__item__dot"></span></span>
+      <span class="marquee__item" aria-hidden="true">Sales Funnels<span class="marquee__item__dot"></span></span>
+      <span class="marquee__item" aria-hidden="true">Dashboards &amp; APIs<span class="marquee__item__dot"></span></span>
+      <span class="marquee__item" aria-hidden="true">CRO &amp; Tracking<span class="marquee__item__dot"></span></span>
+      <span class="marquee__item" aria-hidden="true">Clean Architecture<span class="marquee__item__dot"></span></span>
+      <span class="marquee__item" aria-hidden="true">Stack-Agnostic<span class="marquee__item__dot"></span></span>
+    </div>
+  </div>
+
+  <!-- ===== 01 · ABOUT ===== -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="kicker reveal">
+        <span class="kicker__num">01</span>
+        <span class="kicker__line"></span>
+        <span data-i18n="kicker.about">Sobre</span>
+      </div>
+
+      <div class="about__grid">
+        <div class="about__sticky reveal reveal--left">
+          <div class="about__photo">
+            <img src="pictures/me/mee.png" alt="Victor Rodrigues Herculini" class="about__photo__img" loading="lazy" decoding="async">
+            <span class="about__photo__deco" aria-hidden="true"></span>
+            <span class="about__photo__grid-line" aria-hidden="true"></span>
+            <span class="about__photo__grid-line about__photo__grid-line--h" aria-hidden="true"></span>
+            <span class="about__photo__crosshair" aria-hidden="true"></span>
+            <span class="about__photo__seal" aria-hidden="true">VH</span>
+            <span class="about__photo__corner" aria-hidden="true"></span>
+            <span class="about__photo__caption">São Carlos · SP · <span id="aboutClock">--:--</span></span>
+          </div>
+        </div>
+
+        <div>
+          <p class="about__bio" id="aboutBio" data-i18n-bio="about.bio">
+            <!-- Hydrated word-by-word for smooth staggered editorial reveal -->
+          </p>
+
+          <p class="about__sub reveal" data-i18n="about.sub">
+            Sem stack fixa: uso engenharia sólida e Inteligência Artificial para ir da ideia ao produto rodando em produção — unindo código limpo, automação e visão real de crescimento.
+          </p>
+
+          <div class="about__facts">
+            <div class="about__fact">
+              <span class="about__fact__label" data-i18n="fact.nameL">Nome</span>
+              <span class="about__fact__value">Victor Rodrigues Herculini</span>
+              <span class="about__fact__icon" aria-hidden="true">→</span>
+            </div>
+            <div class="about__fact">
+              <span class="about__fact__label" data-i18n="fact.ageL">Idade</span>
+              <span class="about__fact__value" data-i18n="fact.ageV">21 anos</span>
+              <span class="about__fact__icon" aria-hidden="true">→</span>
+            </div>
+            <div class="about__fact">
+              <span class="about__fact__label" data-i18n="fact.locL">Local</span>
+              <span class="about__fact__value">São Carlos · SP · Brasil</span>
+              <span class="about__fact__icon" aria-hidden="true">→</span>
+            </div>
+            <div class="about__fact">
+              <span class="about__fact__label" data-i18n="fact.eduL">Formação</span>
+              <span class="about__fact__value" data-i18n="fact.eduV">ADS · IFSP Araraquara</span>
+              <span class="about__fact__icon" aria-hidden="true">→</span>
+            </div>
+            <div class="about__fact">
+              <span class="about__fact__label" data-i18n="fact.mindsetL">Mindset</span>
+              <span class="about__fact__value" data-i18n="fact.mindsetV">AI-Native · Stack-Agnostic · Outcome First</span>
+              <span class="about__fact__icon" aria-hidden="true">→</span>
+            </div>
+            <div class="about__fact">
+              <span class="about__fact__label" data-i18n="fact.focusL">Atuação</span>
+              <span class="about__fact__value" data-i18n="fact.focusV">Web &amp; Mobile · AI · E-Commerce · Paid Traffic · Ventures</span>
+              <span class="about__fact__icon" aria-hidden="true">→</span>
+            </div>
+            <div class="about__fact">
+              <span class="about__fact__label" data-i18n="fact.statusL">Status</span>
+              <span class="about__fact__value about__fact__value--accent" data-i18n="fact.statusV">Shipping · Aberto a oportunidades ●</span>
+              <span class="about__fact__icon" aria-hidden="true">→</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 02 · FOCUS PILLARS & CORE STRENGTHS ===== -->
+  <section class="focus-section" id="focus">
+    <div class="container">
+      <div class="kicker reveal">
+        <span class="kicker__num">02</span>
+        <span class="kicker__line"></span>
+        <span data-i18n="kicker.focus">Áreas de Atuação</span>
+      </div>
+
+      <div class="focus-section__head">
+        <h2 class="section-title reveal" data-i18n-html="focus.heading">Engenharia, <em>IA</em><br>&amp; crescimento real.</h2>
+        <p class="section-lead reveal" data-i18n="focus.lead">
+          Atuo ponta a ponta: do código e arquitetura de software até agentes de IA, lojas de alta conversão, tráfego pago e criação de produtos próprios.
         </p>
+      </div>
 
-        <div class="about__facts">
-          <div class="about__fact"><span class="about__fact__label">Nome</span><span class="about__fact__value">Victor Rodrigues Herculini</span><span class="about__fact__icon">→</span></div>
-          <div class="about__fact"><span class="about__fact__label">Idade</span><span class="about__fact__value">20 anos</span><span class="about__fact__icon">→</span></div>
-          <div class="about__fact"><span class="about__fact__label">Local</span><span class="about__fact__value">São Carlos · SP</span><span class="about__fact__icon">→</span></div>
-          <div class="about__fact"><span class="about__fact__label">Curso</span><span class="about__fact__value">ADS · IFSP</span><span class="about__fact__icon">→</span></div>
-          <div class="about__fact"><span class="about__fact__label">Status</span><span class="about__fact__value" style="color: var(--accent);">Aberto a oportunidades ●</span><span class="about__fact__icon">→</span></div>
-          <div class="about__fact"><span class="about__fact__label">Foco</span><span class="about__fact__value">Back-end · Mobile · Arquitetura</span><span class="about__fact__icon">→</span></div>
+      <!-- 6 Focus Pillars (from victorherculini, styled in clean editorial aesthetic) -->
+      <div class="focus-cards" data-stagger>
+        <article class="focus-card spotlight">
+          <div class="focus-card__head">
+            <span class="focus-card__num">01 / Engineering</span>
+            <span class="focus-card__icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3.5" width="20" height="17" rx="3"/><path d="M2 8.5H22" opacity="0.45"/><path d="M9.5 12.2L7 14.5L9.5 16.8"/><path d="M14.5 12.2L17 14.5L14.5 16.8"/></svg>
+            </span>
+          </div>
+          <h3 class="focus-card__title">Web</h3>
+          <p class="focus-card__desc" data-i18n="focus.web">Sites, web apps, dashboards e plataformas completas — entregues com arquitetura limpa e velocidade usando IA.</p>
+          <span class="focus-card__tags">Websites · Web Apps · SaaS · APIs</span>
+        </article>
+
+        <article class="focus-card spotlight">
+          <div class="focus-card__head">
+            <span class="focus-card__num">02 / Apps</span>
+            <span class="focus-card__icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M10 5.2H14" opacity="0.55"/><path d="M10.5 18.8H13.5" opacity="0.75"/></svg>
+            </span>
+          </div>
+          <h3 class="focus-card__title">Mobile</h3>
+          <p class="focus-card__desc" data-i18n="focus.mobile">Aplicativos mobile nativos e modernos pensados da primeira ideia ao lançamento, centrados em quem usa.</p>
+          <span class="focus-card__tags">Kotlin · Android · Firebase · UX</span>
+        </article>
+
+        <article class="focus-card spotlight">
+          <div class="focus-card__head">
+            <span class="focus-card__num">03 / Automation</span>
+            <span class="focus-card__icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7L12 10L19 12M5 17L12 14L19 12M5 7L12 14M5 17L12 10" opacity="0.45"/><circle cx="5" cy="7" r="2"/><circle cx="5" cy="17" r="2"/><circle cx="12" cy="10" r="2"/><circle cx="12" cy="14" r="2"/><circle cx="19" cy="12" r="2.2" fill="currentColor"/></svg>
+            </span>
+          </div>
+          <h3 class="focus-card__title">AI &amp; Agents</h3>
+          <p class="focus-card__desc" data-i18n="focus.ai">Agentes inteligentes, chatbots, integrações e workflows automatizados que executam o trabalho pesado em escala.</p>
+          <span class="focus-card__tags">AI Agents · Chatbots · Workflows · Integrations</span>
+        </article>
+
+        <article class="focus-card spotlight">
+          <div class="focus-card__head">
+            <span class="focus-card__num">04 / Commerce</span>
+            <span class="focus-card__icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 8.5H19.5L18.4 19.2C18.2 20.3 17.3 21 16.2 21H7.8C6.7 21 5.8 20.3 5.6 19.2L4.5 8.5Z"/><path d="M8.5 8.5V6.5C8.5 4.5 10.1 3 12 3C13.9 3 15.5 4.5 15.5 6.5V8.5"/><path d="M9.3 14.5L11.2 16.4L14.9 12.7"/></svg>
+            </span>
+          </div>
+          <h3 class="focus-card__title">E-Commerce</h3>
+          <p class="focus-card__desc" data-i18n="focus.ecommerce">Lojas online de alta conversão, landing pages, funis de vendas, CRO e operações digitais completas.</p>
+          <span class="focus-card__tags">Online Stores · Funnels · CRO · Tracking</span>
+        </article>
+
+        <article class="focus-card spotlight">
+          <div class="focus-card__head">
+            <span class="focus-card__num">05 / Growth</span>
+            <span class="focus-card__icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="13" r="8" opacity="0.35"/><circle cx="11" cy="13" r="4.5" opacity="0.65"/><circle cx="11" cy="13" r="1.4" fill="currentColor"/><path d="M13.5 10.5L20.5 3.5"/><path d="M16 3.5H20.5V8"/></svg>
+            </span>
+          </div>
+          <h3 class="focus-card__title">Paid Traffic</h3>
+          <p class="focus-card__desc" data-i18n="focus.traffic">Campanhas orientadas a dados, aquisição estratégica e ROAS escalável operando Meta Ads e Google Ads.</p>
+          <span class="focus-card__tags">Meta Ads · Google Ads · Acquisition · ROAS</span>
+        </article>
+
+        <article class="focus-card spotlight">
+          <div class="focus-card__head">
+            <span class="focus-card__num">06 / Founder</span>
+            <span class="focus-card__icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 19.5H21" opacity="0.35"/><path d="M4.5 16.5L9.5 12L13 14.2L19.5 6.5"/><path d="M15 6.5H19.5V11"/><circle cx="19.5" cy="6.5" r="2" fill="currentColor" stroke="none"/></svg>
+            </span>
+          </div>
+          <h3 class="focus-card__title">Ventures</h3>
+          <p class="focus-card__desc" data-i18n="focus.ventures">Transformando ideias em produtos digitais, MVPs e ferramentas internas com mentalidade de fundador.</p>
+          <span class="focus-card__tags">MVPs · Internal Tools · Products · Strategy</span>
+        </article>
+      </div>
+
+      <!-- Classic Editorial Skills Bars (preserved from original portfolio + refined) -->
+      <div class="skills-block">
+        <div class="skills__grid">
+          <div>
+            <h3 class="skills__title reveal" data-i18n-html="skills.title">O que <em>levo</em><br>pro time.</h3>
+            <p class="section-lead reveal" data-i18n="skills.lead">Mais que sintaxe: visão de produto, comunicação clara, execução assistida por IA e obsessão por entregar bem feito.</p>
+          </div>
+          <div class="skills__list">
+            <div class="skill" style="--w: 92%"><div class="skill__head"><span class="skill__name" data-i18n="skills.s1">Engenharia AI-Native &amp; Automação</span><span class="skill__num">092</span></div><div class="skill__bar"><div class="skill__bar__fill"></div></div></div>
+            <div class="skill" style="--w: 90%"><div class="skill__head"><span class="skill__name" data-i18n="skills.s2">Trabalho em Equipe &amp; Comunicação</span><span class="skill__num">090</span></div><div class="skill__bar"><div class="skill__bar__fill"></div></div></div>
+            <div class="skill" style="--w: 88%"><div class="skill__head"><span class="skill__name" data-i18n="skills.s3">Criatividade &amp; Visão de Produto</span><span class="skill__num">088</span></div><div class="skill__bar"><div class="skill__bar__fill"></div></div></div>
+            <div class="skill" style="--w: 87%"><div class="skill__head"><span class="skill__name" data-i18n="skills.s4">Aprendizado Prático &amp; Adaptabilidade</span><span class="skill__num">087</span></div><div class="skill__bar"><div class="skill__bar__fill"></div></div></div>
+            <div class="skill" style="--w: 86%"><div class="skill__head"><span class="skill__name" data-i18n="skills.s5">Lógica, Arquitetura &amp; Resolução de Problemas</span><span class="skill__num">086</span></div><div class="skill__bar"><div class="skill__bar__fill"></div></div></div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ===== SKILLS ===== -->
-<section class="skills" data-screen-label="03 Habilidades">
-  <div class="container">
-    <div class="kicker reveal">
-      <span class="kicker__num">02</span>
-      <span class="kicker__line"></span>
-      Habilidades
+  <!-- ===== 03 · WORKFLOW & DELIVERABLES ===== -->
+  <section class="workflow-section" id="workflow">
+    <div class="container">
+      <div class="kicker reveal">
+        <span class="kicker__num">03</span>
+        <span class="kicker__line"></span>
+        <span data-i18n="kicker.workflow">Processo de Execução</span>
+      </div>
+
+      <div class="workflow-head">
+        <h2 class="section-title reveal" data-i18n-html="wf.heading">Da ideia ao <em>lançamento</em>.</h2>
+        <p class="section-lead reveal" data-i18n="wf.lead">Sem burocracia ou apego a stack: foco no problema real, direção precisa com IA e iteração rápida em produção.</p>
+      </div>
+
+      <div class="wf-timeline reveal" id="workflowTrack">
+        <div class="wf-rail" aria-hidden="true">
+          <div class="wf-rail__beam"></div>
+        </div>
+
+        <button type="button" class="wf-step is-active" data-step="0" data-cursor="hover">
+          <span class="wf-step__node"><span class="wf-step__ripple"></span>01</span>
+          <span class="wf-step__title">Idea</span>
+          <span class="wf-step__short" data-i18n="wf.s1">Comece por um problema real.</span>
+        </button>
+
+        <button type="button" class="wf-step" data-step="1" data-cursor="hover">
+          <span class="wf-step__node"><span class="wf-step__ripple"></span>02</span>
+          <span class="wf-step__title">Prompt</span>
+          <span class="wf-step__short" data-i18n="wf.s2">Direcione a IA com clareza.</span>
+        </button>
+
+        <button type="button" class="wf-step" data-step="2" data-cursor="hover">
+          <span class="wf-step__node"><span class="wf-step__ripple"></span>03</span>
+          <span class="wf-step__title">Build</span>
+          <span class="wf-step__short" data-i18n="wf.s3">A IA faz o trabalho pesado.</span>
+        </button>
+
+        <button type="button" class="wf-step" data-step="3" data-cursor="hover">
+          <span class="wf-step__node"><span class="wf-step__ripple"></span>04</span>
+          <span class="wf-step__title">Ship</span>
+          <span class="wf-step__short" data-i18n="wf.s4">Lance, aprenda e itere.</span>
+        </button>
+      </div>
+
+      <div class="wf-caption reveal" aria-live="polite">
+        <span class="wf-caption__tag" id="wfTag">01 · IDEA</span>
+        <p class="wf-caption__text" id="wfText" data-i18n="wf.d1">Antes de escrever uma linha de código, mapeio o problema real, o fluxo de quem usa e o resultado esperado para o negócio.</p>
+      </div>
+
+      <!-- Deliverables Cloud (clean editorial index) -->
+      <div class="deliverables reveal">
+        <div class="deliverables__head">
+          <span class="mono-kicker" data-i18n="builds.kicker">O QUE CONSTRUO &amp; OPERO</span>
+          <span class="mono-faint">END-TO-END · AI-POWERED</span>
+        </div>
+        <div class="deliverables__list">
+          <span class="deliverable">Websites</span>
+          <span class="deliverable">Web Apps</span>
+          <span class="deliverable">Mobile Apps</span>
+          <span class="deliverable">SaaS</span>
+          <span class="deliverable">E-Commerce Stores</span>
+          <span class="deliverable">Landing Pages</span>
+          <span class="deliverable">Sales Funnels</span>
+          <span class="deliverable">Dashboards</span>
+          <span class="deliverable">MVPs</span>
+          <span class="deliverable">AI Agents</span>
+          <span class="deliverable">Automations</span>
+          <span class="deliverable">Paid Traffic</span>
+          <span class="deliverable">Meta &amp; Google Ads</span>
+          <span class="deliverable">Chatbots</span>
+          <span class="deliverable">APIs</span>
+          <span class="deliverable">CRO &amp; Tracking</span>
+          <span class="deliverable">Internal Tools</span>
+          <span class="deliverable">Integrations</span>
+          <span class="deliverable deliverable--accent">Anything</span>
+        </div>
+      </div>
     </div>
-    <div class="skills__grid">
-      <div>
-        <h2 class="section-title reveal">O que <em>levo</em><br>pro time.</h2>
-        <p class="section-lead reveal">Mais que sintaxe: comunicação, processo e a obsessão de entregar bem feito.</p>
-      </div>
-      <div class="skills__list">
-        <div class="skill" style="--w: 85%"><div class="skill__head"><span class="skill__name">Lógica de Programação</span><span class="skill__num">085</span></div><div class="skill__bar"><div class="skill__bar__fill"></div></div></div>
-        <div class="skill" style="--w: 90%"><div class="skill__head"><span class="skill__name">Trabalho em Equipe</span><span class="skill__num">090</span></div><div class="skill__bar"><div class="skill__bar__fill"></div></div></div>
-        <div class="skill" style="--w: 88%"><div class="skill__head"><span class="skill__name">Criatividade</span><span class="skill__num">088</span></div><div class="skill__bar"><div class="skill__bar__fill"></div></div></div>
-        <div class="skill" style="--w: 82%"><div class="skill__head"><span class="skill__name">Resolução de Problemas</span><span class="skill__num">082</span></div><div class="skill__bar"><div class="skill__bar__fill"></div></div></div>
-        <div class="skill" style="--w: 87%"><div class="skill__head"><span class="skill__name">Aprendizado Prático</span><span class="skill__num">087</span></div><div class="skill__bar"><div class="skill__bar__fill"></div></div></div>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ===== PROJECTS ===== -->
-<section class="projects" id="work" data-screen-label="04 Projetos">
-  <div class="container">
-    <div class="kicker reveal">
-      <span class="kicker__num">03</span>
-      <span class="kicker__line"></span>
-      Trabalhos selecionados
-    </div>
-    <div class="projects__head">
-      <h2 class="section-title reveal">Projetos em <em>destaque</em>.</h2>
-    </div>
-  </div>
-
-  <div class="projects__head__nav" aria-label="Navegar projetos">
-    <button class="projects__nav-btn" id="prj-prev" aria-label="Anterior" data-cursor="hover">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
-    </button>
-    <button class="projects__nav-btn" id="prj-next" aria-label="Próximo" data-cursor="hover">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-    </button>
-  </div>
-
-  <div class="projects__strip" id="prjStrip">
-
-    <article class="project reveal reveal--right">
-      <div class="project__cover">
-        <img src="pictures/postly/video-poster.png" data-animated-src="pictures/postly/video.gif" alt="Demonstração do Postly" class="project__cover__img" loading="lazy" decoding="async">
-        <span class="project__cover__glow"></span>
-        <div class="project__cover__mock"><span></span><span></span><span></span><span></span><span></span><span></span></div>
-        <span class="project__cover__label">01 · Mobile</span>
-        <span class="project__cover__seal">Postly</span>
-        <span class="project__cover__year">2026</span>
-      </div>
-      <div class="project__body">
-        <span class="project__cat">Rede social mobile</span>
-        <h3 class="project__title">Postly</h3>
-        <p class="project__desc">Rede social mobile para publicação de conteúdo, interação entre usuários e construção de comunidades — desenvolvida nativamente para mobile.</p>
-        <div class="project__tags"><span class="project__tag">Kotlin</span><span class="project__tag">Mobile</span><span class="project__tag">Firebase</span><span class="project__tag">XML</span></div>
-        <a href="https://github.com/vitaoh/postly-app" target="_blank" rel="noopener" class="project__link" data-cursor="hover">
-          Ver no GitHub <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-        </a>
-      </div>
-    </article>
-
-    <article class="project reveal reveal--right">
-      <div class="project__cover">
-        <img src="pictures/guiapocket/demonstracao-poster.png" data-animated-src="pictures/guiapocket/demonstracao.gif" alt="Demonstração do Guia Pocket" class="project__cover__img" loading="lazy" decoding="async">
-        <span class="project__cover__glow"></span>
-        <div class="project__cover__mock"><span></span><span></span><span></span><span></span><span></span><span></span></div>
-        <span class="project__cover__label">02 · Mobile</span>
-        <span class="project__cover__seal">Guia<br>Pocket</span>
-        <span class="project__cover__year">2025</span>
-      </div>
-      <div class="project__body">
-        <span class="project__cat">Aplicativo mobile</span>
-        <h3 class="project__title">Guia Pocket</h3>
-        <p class="project__desc">Aplicativo mobile para guias práticos e consultas rápidas, com navegação intuitiva e acesso offline ao conteúdo.</p>
-        <div class="project__tags"><span class="project__tag">Kotlin</span><span class="project__tag">Mobile</span><span class="project__tag">XML</span></div>
-        <a href="https://github.com/vitaoh/guia-pocket-app" target="_blank" rel="noopener" class="project__link" data-cursor="hover">
-          Ver no GitHub <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-        </a>
-      </div>
-    </article>
-
-    <article class="project reveal reveal--right">
-      <div class="project__cover">
-        <img src="pictures/task/tarefas.png" alt="Tela de tarefas do Task Manager" class="project__cover__img" loading="lazy" decoding="async">
-        <span class="project__cover__glow"></span>
-        <div class="project__cover__mock"><span></span><span></span><span></span><span></span><span></span><span></span></div>
-        <span class="project__cover__label">03 · Sistema</span>
-        <span class="project__cover__seal">Task<br>Manager</span>
-        <span class="project__cover__year">2025</span>
-      </div>
-      <div class="project__body">
-        <span class="project__cat">Sistema web completo</span>
-        <h3 class="project__title">Task Manager</h3>
-        <p class="project__desc">Sistema web para gerenciamento de tarefas com CRUD completo, foco em produtividade e back-end escalável.</p>
-        <div class="project__tags"><span class="project__tag">Java</span><span class="project__tag">JSP</span><span class="project__tag">MySQL</span><span class="project__tag">HTML/CSS</span></div>
-        <a href="https://github.com/vitaoh/task-manager" target="_blank" rel="noopener" class="project__link" data-cursor="hover">
-          Ver no GitHub <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-        </a>
-      </div>
-    </article>
-
-    <article class="project reveal reveal--right">
-      <div class="project__cover">
-        <img src="pictures/rededevs/home.png" alt="Tela inicial da RedeDevs" class="project__cover__img" loading="lazy" decoding="async">
-        <span class="project__cover__glow"></span>
-        <div class="project__cover__mock"><span></span><span></span><span></span><span></span><span></span><span></span></div>
-        <span class="project__cover__label">04 · Comunidade</span>
-        <span class="project__cover__seal">Rede<br>Devs</span>
-        <span class="project__cover__year">2025</span>
-      </div>
-      <div class="project__body">
-        <span class="project__cat">Plataforma social</span>
-        <h3 class="project__title">RedeDevs</h3>
-        <p class="project__desc">Plataforma social para conectar desenvolvedores, incentivar interação e fortalecer comunidades técnicas.</p>
-        <div class="project__tags"><span class="project__tag">JavaScript</span><span class="project__tag">HTML</span><span class="project__tag">CSS</span><span class="project__tag">LocalStorage</span></div>
-        <a href="https://github.com/vitaoh/RedeDevsV2" target="_blank" rel="noopener" class="project__link" data-cursor="hover">
-          Ver no GitHub <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-        </a>
-      </div>
-    </article>
-
-    <article class="project reveal reveal--right">
-      <div class="project__cover">
-        <img src="pictures/pokemon/batalha.png" alt="Tela de batalha do Pokémon Showdown" class="project__cover__img" loading="lazy" decoding="async">
-        <span class="project__cover__glow"></span>
-        <div class="project__cover__mock"><span></span><span></span><span></span><span></span><span></span><span></span></div>
-        <span class="project__cover__label">05 · Experimental</span>
-        <span class="project__cover__seal">Pokémon<br>Showdown</span>
-        <span class="project__cover__year">2025</span>
-      </div>
-      <div class="project__body">
-        <span class="project__cat">Interface & lógica</span>
-        <h3 class="project__title">Pokémon Showdown</h3>
-        <p class="project__desc">Projeto experimental para praticar interface, lógica de interação e mecânicas inspiradas em batalhas Pokémon.</p>
-        <div class="project__tags"><span class="project__tag">Java</span></div>
-        <a href="https://github.com/vitaoh/PokemonShowdown" target="_blank" rel="noopener" class="project__link" data-cursor="hover">
-          Ver no GitHub <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-        </a>
-      </div>
-    </article>
-
-  </div>
-</section>
-
-<!-- ===== VISION ===== -->
-<section class="vision" id="vision" data-screen-label="05 Visão">
-  <div class="container">
-    <div class="vision__inner">
-      <div class="kicker reveal" style="justify-content: center;">
+  <!-- ===== 04 · WORK (CURATED PROJECTS + AUTOMATED LIVE GITHUB) ===== -->
+  <section class="projects" id="work">
+    <div class="container">
+      <div class="kicker reveal">
         <span class="kicker__num">04</span>
         <span class="kicker__line"></span>
-        Visão
+        <span data-i18n="kicker.work">Trabalhos selecionados</span>
       </div>
-      <div class="vision__quote-mark reveal reveal--scale">"</div>
-      <p class="vision__text reveal">
-        Quero ser engenheiro de software<br>
-        em uma rede social que conecta <em>pessoas</em><br>
-        e cria <em>comunidades</em> com propósito.
-      </p>
-      <div class="vision__pillars" data-stagger>
-        <div class="pillar">
-          <span class="pillar__num">001 / Inovação</span>
-          <h3 class="pillar__title">Soluções que transformam.</h3>
-          <p class="pillar__desc">Criar produtos que mudam a forma como as pessoas se conectam — e que pesam menos no dia a dia.</p>
-          <span class="pillar__shape"></span>
+
+      <div class="projects__head">
+        <div>
+          <h2 class="section-title reveal" data-i18n-html="work.heading">Projetos em <em>destaque</em>.</h2>
         </div>
-        <div class="pillar">
-          <span class="pillar__num">002 / Conexão</span>
-          <h3 class="pillar__title">Plataformas com propósito.</h3>
-          <p class="pillar__desc">Aproximar comunidades reais — não métricas vazias, mas relações que importam.</p>
-          <span class="pillar__shape"></span>
-        </div>
-        <div class="pillar">
-          <span class="pillar__num">003 / Impacto</span>
-          <h3 class="pillar__title">Futuro mais inclusivo.</h3>
-          <p class="pillar__desc">Contribuir para um digital mais conectado, acessível, e menos hostil — pra todo mundo.</p>
-          <span class="pillar__shape"></span>
+
+        <div class="projects__controls reveal">
+          <div class="filter-group" role="tablist" aria-label="Filtrar categoria">
+            <button type="button" class="filter-btn is-active" data-project-filter="all" data-i18n="filter.all">Todos</button>
+            <button type="button" class="filter-btn" data-project-filter="mobile">Mobile</button>
+            <button type="button" class="filter-btn" data-project-filter="web">Web</button>
+            <button type="button" class="filter-btn" data-project-filter="systems" data-i18n="filter.systems">Sistemas</button>
+          </div>
+
+          <div class="layout-switch" role="group" aria-label="Modo de visualização">
+            <button type="button" class="layout-btn is-active" data-layout="grid" title="Visualização em Grade" data-cursor="hover">Grid</button>
+            <button type="button" class="layout-btn" data-layout="carousel" title="Visualização em Carrossel" data-cursor="hover">Strip</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ===== CONTACT ===== -->
-<section class="contact" id="contact" data-screen-label="06 Contato">
-  <div class="container">
-    <div class="kicker reveal">
-      <span class="kicker__num">05</span>
-      <span class="kicker__line"></span>
-      Vamos conversar
-    </div>
-    <h2 class="contact__big reveal">
-      Tem um<br>
-      projeto? <em>Me chama.</em>
-    </h2>
-
-    <div class="contact__grid">
-      <div class="contact__channels reveal reveal--left">
-        <a href="mailto:vrherculini@gmail.com" class="channel" data-cursor="hover">
-          <span class="channel__label">Email</span>
-          <span class="channel__value">vrherculini@gmail.com</span>
-          <span class="channel__arrow">→</span>
-        </a>
-        <a href="tel:+5516997858363" class="channel" data-cursor="hover">
-          <span class="channel__label">Tel</span>
-          <span class="channel__value">(16) 99785-8363</span>
-          <span class="channel__arrow">→</span>
-        </a>
-        <a href="https://github.com/vitaoh" target="_blank" rel="noopener" class="channel" data-cursor="hover">
-          <span class="channel__label">GitHub</span>
-          <span class="channel__value">@vitaoh</span>
-          <span class="channel__arrow">→</span>
-        </a>
-        <a href="https://www.linkedin.com/in/victor-herculini/" target="_blank" rel="noopener" class="channel" data-cursor="hover">
-          <span class="channel__label">LinkedIn</span>
-          <span class="channel__value">victor-herculini</span>
-          <span class="channel__arrow">→</span>
-        </a>
-        <a href="https://www.instagram.com/victorherculini/" target="_blank" rel="noopener" class="channel" data-cursor="hover">
-          <span class="channel__label">Instagram</span>
-          <span class="channel__value">@victorherculini</span>
-          <span class="channel__arrow">→</span>
-        </a>
-      </div>
-
-      <form class="form reveal reveal--right" id="contactForm" novalidate>
-        <div class="field">
-          <input type="text" id="name" name="name" placeholder=" " required>
-          <label for="name">Nome</label>
-        </div>
-        <div class="field">
-          <input type="email" id="email" name="email" placeholder=" " required>
-          <label for="email">Email</label>
-        </div>
-        <div class="field">
-          <input type="text" id="subject" name="subject" placeholder=" " required>
-          <label for="subject">Assunto</label>
-        </div>
-        <div class="field">
-          <textarea id="message" name="message" placeholder=" " required></textarea>
-          <label for="message">Mensagem</label>
-        </div>
-        <button type="submit" class="form__submit" data-cursor="hover">
-          Enviar mensagem
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    <!-- Carousel Floating Nav Arrows (shown only in Strip mode) -->
+    <div class="projects__strip-nav" id="projectsStripNav" hidden>
+      <div class="container projects__strip-nav__inner">
+        <button type="button" class="projects__nav-btn magnetic" id="prjPrev" aria-label="Projeto anterior" data-cursor="hover">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
         </button>
-      </form>
+        <button type="button" class="projects__nav-btn magnetic" id="prjNext" aria-label="Próximo projeto" data-cursor="hover">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
     </div>
-  </div>
-</section>
 
-<!-- ===== FOOTER ===== -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer__inner">
-      <span>© 2026 · Victor Rodrigues Herculini · São Carlos, BR</span>
-      <div class="footer__social">
-        <a href="https://github.com/vitaoh" target="_blank" rel="noopener" data-cursor="hover">GitHub ↗</a>
-        <a href="https://www.linkedin.com/in/victor-herculini/" target="_blank" rel="noopener" data-cursor="hover">LinkedIn ↗</a>
-        <a href="https://www.instagram.com/victorherculini/" target="_blank" rel="noopener" data-cursor="hover">Instagram ↗</a>
+    <div class="container" id="projectsContainer">
+      <div class="projects__grid" id="projectsGrid" data-view="grid">
+        <!-- Rendered & hydrated dynamically with live GitHub stars & timestamps -->
+      </div>
+    </div>
+
+    <!-- Automated Live GitHub Repositories Feed -->
+    <div class="container" id="github-live">
+      <div class="gh-block reveal">
+        <div class="gh-block__head">
+          <div>
+            <div class="gh-block__eyebrow">
+              <span class="gh-live-dot" aria-hidden="true"></span>
+              <span>LIVE GITHUB SYNC · @victorherculini</span>
+            </div>
+            <h3 class="gh-block__title" data-i18n="gh.title">Todos os repositórios, atualizados automaticamente.</h3>
+            <p class="gh-block__meta" id="ghSyncStatus">Sincronizado via GitHub API + GitHub Actions</p>
+          </div>
+
+          <div class="gh-block__actions">
+            <button type="button" class="btn-editorial btn-editorial--ghost btn-editorial--sm" id="ghRefreshBtn" data-cursor="hover">
+              <svg class="refresh-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/></svg>
+              <span data-i18n="gh.refresh">Sincronizar</span>
+            </button>
+            <a href="https://github.com/victorherculini?tab=repositories" target="_blank" rel="noopener noreferrer" class="btn-editorial btn-editorial--ghost btn-editorial--sm" data-cursor="hover">
+              <span>GitHub ↗</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Automatic Language Distribution Bar -->
+        <div class="gh-langs">
+          <div class="gh-langs__bar" id="ghLangBar"></div>
+          <div class="gh-langs__legend" id="ghLangLegend"></div>
+        </div>
+
+        <!-- Live Search & Language Filter -->
+        <div class="gh-toolbar">
+          <div class="gh-search">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <input type="search" id="ghSearchInput" class="gh-search__input" placeholder="Buscar repositório..." aria-label="Buscar repositório no GitHub">
+          </div>
+          <div class="gh-lang-filters" id="ghLangFilters"></div>
+        </div>
+
+        <!-- Auto-rendered Repository List -->
+        <div class="gh-repos" id="ghReposGrid"></div>
+
+        <div class="gh-block__foot">
+          <button type="button" class="btn-editorial btn-editorial--ghost btn-editorial--sm" id="ghToggleMoreBtn" hidden data-cursor="hover">
+            <span data-i18n="gh.showMore">Ver mais repositórios</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 05 · VISION ===== -->
+  <section class="vision" id="vision">
+    <div class="container">
+      <div class="vision__inner">
+        <div class="kicker reveal" style="justify-content: center;">
+          <span class="kicker__num">05</span>
+          <span class="kicker__line"></span>
+          <span data-i18n="kicker.vision">Visão</span>
+        </div>
+
+        <div class="vision__quote-mark reveal reveal--scale" aria-hidden="true">"</div>
+        <p class="vision__text reveal" data-i18n-html="vision.quote">
+          Construo software, produtos e operações<br>
+          que conectam <em>pessoas</em>, criam <em>comunidades</em><br>
+          e geram impacto real em escala.
+        </p>
+
+        <div class="vision__pillars" data-stagger>
+          <div class="pillar spotlight">
+            <span class="pillar__num">001 / <span data-i18n="pillar.p1k">Inovação</span></span>
+            <h3 class="pillar__title" data-i18n="pillar.p1t">Soluções que transformam.</h3>
+            <p class="pillar__desc" data-i18n="pillar.p1d">Combinar engenharia limpa e IA para criar produtos que resolvem dores reais — e tiram peso do dia a dia.</p>
+            <span class="pillar__shape" aria-hidden="true"></span>
+          </div>
+          <div class="pillar spotlight">
+            <span class="pillar__num">002 / <span data-i18n="pillar.p2k">Conexão</span></span>
+            <h3 class="pillar__title" data-i18n="pillar.p2t">Plataformas com propósito.</h3>
+            <p class="pillar__desc" data-i18n="pillar.p2d">Aproximar pessoas e comunidades reais — não métricas vazias, mas relações e produtos que realmente importam.</p>
+            <span class="pillar__shape" aria-hidden="true"></span>
+          </div>
+          <div class="pillar spotlight">
+            <span class="pillar__num">003 / <span data-i18n="pillar.p3k">Execução</span></span>
+            <h3 class="pillar__title" data-i18n="pillar.p3t">Always learning. Always shipping.</h3>
+            <p class="pillar__desc" data-i18n="pillar.p3d">Do primeiro prompt ao lançamento e à aquisição de usuários: aprender rápido, construir sem barreiras e escalar resultados.</p>
+            <span class="pillar__shape" aria-hidden="true"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 06 · CONTACT ===== -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="kicker reveal">
+        <span class="kicker__num">06</span>
+        <span class="kicker__line"></span>
+        <span data-i18n="kicker.contact">Vamos conversar</span>
+      </div>
+
+      <h2 class="contact__big reveal" data-i18n-html="contact.big">
+        Tem um<br>
+        projeto? <em>Me chama.</em>
+      </h2>
+
+      <div class="contact__grid">
+        <div class="contact__channels reveal reveal--left">
+          <div class="channel channel--copy">
+            <a href="mailto:vrherculini@gmail.com" class="channel__link" data-cursor="hover">
+              <span class="channel__label">Email</span>
+              <span class="channel__value">vrherculini@gmail.com</span>
+            </a>
+            <button type="button" class="copy-chip" data-copy-email data-cursor="hover" data-i18n="common.copy">Copiar</button>
+          </div>
+
+          <a href="https://wa.me/5516997858363" target="_blank" rel="noopener noreferrer" class="channel" data-cursor="hover">
+            <span class="channel__label">WhatsApp</span>
+            <span class="channel__value">(16) 99785-8363</span>
+            <span class="channel__arrow" aria-hidden="true">→</span>
+          </a>
+
+          <a href="https://github.com/victorherculini" target="_blank" rel="noopener noreferrer" class="channel" data-cursor="hover">
+            <span class="channel__label">GitHub</span>
+            <span class="channel__value">@victorherculini</span>
+            <span class="channel__arrow" aria-hidden="true">→</span>
+          </a>
+
+          <a href="https://www.linkedin.com/in/victor-herculini/" target="_blank" rel="noopener noreferrer" class="channel" data-cursor="hover">
+            <span class="channel__label">LinkedIn</span>
+            <span class="channel__value">victor-herculini</span>
+            <span class="channel__arrow" aria-hidden="true">→</span>
+          </a>
+
+          <a href="https://www.instagram.com/victorherculini/" target="_blank" rel="noopener noreferrer" class="channel" data-cursor="hover">
+            <span class="channel__label">Instagram</span>
+            <span class="channel__value">@victorherculini</span>
+            <span class="channel__arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+
+        <form class="form reveal reveal--right" id="contactForm" novalidate>
+          <div class="form__topics" role="group" aria-label="Tipo de demanda">
+            <button type="button" class="topic-pill is-active" data-topic="Web / Mobile" data-cursor="hover">Web / Mobile</button>
+            <button type="button" class="topic-pill" data-topic="AI & Automation" data-cursor="hover">AI &amp; Automation</button>
+            <button type="button" class="topic-pill" data-topic="E-Commerce / Ads" data-cursor="hover">E-Commerce / Ads</button>
+            <button type="button" class="topic-pill" data-topic="Oportunidade" data-i18n="form.topicOpp" data-cursor="hover">Oportunidade</button>
+          </div>
+
+          <div class="field">
+            <input type="text" id="name" name="name" placeholder=" " required>
+            <label for="name" data-i18n="form.name">Nome</label>
+          </div>
+          <div class="field">
+            <input type="email" id="email" name="email" placeholder=" " required>
+            <label for="email">Email</label>
+          </div>
+          <div class="field">
+            <input type="text" id="subject" name="subject" placeholder=" " value="Projeto — Web / Mobile" required>
+            <label for="subject" data-i18n="form.subject">Assunto</label>
+          </div>
+          <div class="field">
+            <textarea id="message" name="message" placeholder=" " required></textarea>
+            <label for="message" data-i18n="form.message">Mensagem</label>
+          </div>
+
+          <p class="form__feedback" id="formFeedback" role="status" aria-live="polite"></p>
+
+          <div class="form__buttons">
+            <button type="submit" class="form__submit magnetic" data-cursor="hover">
+              <span data-i18n="form.sendEmail">Enviar por Email</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+            <button type="button" class="form__wa magnetic" id="sendWhatsappBtn" data-cursor="hover">
+              <span data-i18n="form.sendWa">WhatsApp ↗</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__left">
+          <span class="footer__motto">Always learning. Always shipping.</span>
+          <span class="footer__copy">© <span data-current-year>2026</span> · Victor Rodrigues Herculini · São Carlos, BR</span>
+        </div>
+        <div class="footer__social">
+          <button type="button" class="footer__cmd" id="footerCmdBtn" data-cursor="hover"><kbd class="kbd">⌘K</kbd></button>
+          <a href="https://github.com/victorherculini" target="_blank" rel="noopener noreferrer" data-cursor="hover">GitHub ↗</a>
+          <a href="https://www.linkedin.com/in/victor-herculini/" target="_blank" rel="noopener noreferrer" data-cursor="hover">LinkedIn ↗</a>
+          <a href="https://www.instagram.com/victorherculini/" target="_blank" rel="noopener noreferrer" data-cursor="hover">Instagram ↗</a>
+          <a href="#top" data-cursor="hover" data-i18n="footer.top">Topo ↑</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== COMMAND PALETTE MODAL (⌘K / Ctrl+K) ===== -->
+  <div class="modal-backdrop" id="cmdBackdrop" aria-hidden="true">
+    <div class="cmd-dialog" role="dialog" aria-modal="true" aria-label="Paleta de comandos">
+      <div class="cmd-dialog__head">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="text" id="cmdInput" class="cmd-dialog__input" placeholder="Ir para seção, buscar projeto, repositório ou ação..." autocomplete="off">
+        <kbd class="kbd">ESC</kbd>
+      </div>
+      <div class="cmd-dialog__list" id="cmdList" role="listbox"></div>
+      <div class="cmd-dialog__foot">
+        <span><kbd class="kbd">↑</kbd> <kbd class="kbd">↓</kbd> <span data-i18n="cmd.nav">navegar</span></span>
+        <span><kbd class="kbd">↵</kbd> <span data-i18n="cmd.run">abrir</span></span>
+        <span><kbd class="kbd">ESC</kbd> <span data-i18n="cmd.close">fechar</span></span>
       </div>
     </div>
   </div>
-</footer>
 
-<!-- ===== TWEAKS PANEL (toggled by host or fallback button) ===== -->
-<button class="tweaks-toggle" id="tweaksToggle" aria-label="Abrir Tweaks" data-cursor="hover">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-</button>
+  <!-- ===== PROJECT SHOWCASE MODAL ===== -->
+  <div class="modal-backdrop" id="projectBackdrop" aria-hidden="true">
+    <div class="project-modal" role="dialog" aria-modal="true" aria-labelledby="pmTitle">
+      <div class="project-modal__head">
+        <div>
+          <span class="project-modal__badge" id="pmBadge">01 · MOBILE</span>
+          <h3 class="project-modal__title" id="pmTitle">Project</h3>
+        </div>
+        <button type="button" class="project-modal__close" id="pmClose" aria-label="Fechar" data-cursor="hover">✕</button>
+      </div>
 
-<div class="tweaks" id="tweaks">
-  <div class="tweaks__head">
-    <span class="tweaks__title">Tweaks</span>
-    <button class="tweaks__close" id="tweaksClose" aria-label="Fechar">✕</button>
-  </div>
+      <div class="project-modal__gallery" id="pmGallery">
+        <div class="project-modal__stage">
+          <img id="pmImage" src="" alt="" class="project-modal__img">
+        </div>
+        <div class="project-modal__nav" id="pmNav">
+          <button type="button" class="pm-arrow" id="pmPrev" aria-label="Anterior" data-cursor="hover">←</button>
+          <span class="project-modal__caption" id="pmCaption"></span>
+          <button type="button" class="pm-arrow" id="pmNext" aria-label="Próxima" data-cursor="hover">→</button>
+        </div>
+        <div class="project-modal__thumbs" id="pmThumbs"></div>
+      </div>
 
-  <div class="tweaks__group">
-    <span class="tweaks__label">Direção estética</span>
-    <div class="tweaks__row tweaks__row--themes">
-      <button class="tweaks__swatch tweaks__swatch--aurora" data-tweak="theme" data-value="aurora">Aurora</button>
-      <button class="tweaks__swatch tweaks__swatch--noir" data-tweak="theme" data-value="noir">Noir</button>
-      <button class="tweaks__swatch tweaks__swatch--mono" data-tweak="theme" data-value="mono">Mono</button>
+      <div class="project-modal__body">
+        <p class="project-modal__desc" id="pmDesc"></p>
+        <ul class="project-modal__highlights" id="pmHighlights"></ul>
+        <div class="project-modal__tags" id="pmTags"></div>
+      </div>
+
+      <div class="project-modal__foot">
+        <span class="project-modal__meta" id="pmMeta"></span>
+        <a href="#" target="_blank" rel="noopener noreferrer" class="btn-editorial btn-editorial--primary btn-editorial--sm" id="pmRepoLink" data-cursor="hover">
+          <span data-i18n="work.viewGithub">Ver no GitHub</span> ↗
+        </a>
+      </div>
     </div>
   </div>
 
-  <div class="tweaks__group">
-    <span class="tweaks__label">Densidade</span>
-    <div class="tweaks__row">
-      <button class="tweaks__btn" data-tweak="density" data-value="compact">Compacto</button>
-      <button class="tweaks__btn" data-tweak="density" data-value="normal">Normal</button>
-      <button class="tweaks__btn" data-tweak="density" data-value="loose">Solto</button>
-    </div>
-  </div>
-
-  <div class="tweaks__group">
-    <span class="tweaks__label">Intensidade dos efeitos</span>
-    <div class="tweaks__row">
-      <button class="tweaks__btn" data-tweak="intensity" data-value="subtle">Sutil</button>
-      <button class="tweaks__btn" data-tweak="intensity" data-value="normal">Normal</button>
-      <button class="tweaks__btn" data-tweak="intensity" data-value="bold">Ousado</button>
-    </div>
-  </div>
-
-  <div class="tweaks__group">
-    <span class="tweaks__label">Layout dos projetos</span>
-    <div class="tweaks__row">
-      <button class="tweaks__btn" data-tweak="projectsLayout" data-value="horizontal">Carrossel</button>
-      <button class="tweaks__btn" data-tweak="projectsLayout" data-value="grid">Grid</button>
-      <button class="tweaks__btn" data-tweak="projectsLayout" data-value="list">Lista</button>
-    </div>
-  </div>
-
-  <div class="tweaks__group">
-    <span class="tweaks__label">Cursor customizado</span>
-    <div class="tweaks__row">
-      <button class="tweaks__btn" data-tweak="cursor" data-value="true">Ativo</button>
-      <button class="tweaks__btn" data-tweak="cursor" data-value="false">Off</button>
-    </div>
-  </div>
-</div>
-
+  <!-- ===== TOAST ===== -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="app.js" defer></script>
 </body>
 </html>
-
