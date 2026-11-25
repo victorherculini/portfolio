@@ -1,5 +1,5 @@
 {
-  "synced_at": "2026-11-24T17:18:30.965Z",
+  "synced_at": "2026-11-25T16:58:55.621Z",
   "profile": {
     "login": "victorherculini",
     "name": "victor",
@@ -7,7 +7,7 @@
     "location": " São Carlos, Brasil",
     "avatar_url": "https://avatars.githubusercontent.com/u/161851120?v=4",
     "html_url": "https://github.com/victorherculini",
-    "public_repos": 27,
+    "public_repos": 28,
     "followers": 24,
     "following": 23,
     "total_stars": 8,
@@ -18,14 +18,27 @@
     "created_at": "2026-11-22T23:20:33Z"
   },
   "languages": {
+    "Python": 3,
     "JavaScript": 2,
-    "Python": 2,
     "Java": 9,
     "C": 4,
     "Kotlin": 8,
     "PLSQL": 1
   },
   "repos": [
+    {
+      "name": "ai-cyber-duel",
+      "description": null,
+      "language": "Python",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "html_url": "https://github.com/victorherculini/ai-cyber-duel",
+      "homepage": null,
+      "topics": [],
+      "updated_at": "2026-11-25T15:39:53Z",
+      "pushed_at": "2026-11-25T16:49:59Z",
+      "created_at": "2026-11-25T15:13:24Z"
+    },
     {
       "name": "portfolio",
       "description": "A personal portfolio website showcasing my main information, skills, and projects, built to present my work as a software developer.",
@@ -36,7 +49,7 @@
       "homepage": "https://victorherculini.vercel.app",
       "topics": [],
       "updated_at": "2026-11-23T00:20:35Z",
-      "pushed_at": "2026-11-23T17:45:08Z",
+      "pushed_at": "2026-11-24T17:18:32Z",
       "created_at": "2024-04-24T14:08:04Z"
     },
     {
