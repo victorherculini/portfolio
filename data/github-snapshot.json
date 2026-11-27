@@ -1,5 +1,5 @@
 {
-  "synced_at": "2026-11-26T16:39:55.885Z",
+  "synced_at": "2026-11-27T16:25:23.083Z",
   "profile": {
     "login": "victorherculini",
     "name": "victor",
@@ -14,8 +14,8 @@
     "created_at": "2024-03-01T14:12:09Z"
   },
   "last_push": {
-    "repo": "victorherculini/portfolio",
-    "created_at": "2026-11-22T23:20:33Z"
+    "repo": "victorherculini/ai-cyber-duel",
+    "created_at": "2026-11-25T21:43:00Z"
   },
   "languages": {
     "Python": 3,
@@ -49,7 +49,7 @@
       "homepage": "https://victorherculini.vercel.app",
       "topics": [],
       "updated_at": "2026-11-23T00:20:35Z",
-      "pushed_at": "2026-11-25T16:58:57Z",
+      "pushed_at": "2026-11-26T16:39:57Z",
       "created_at": "2024-04-24T14:08:04Z"
     },
     {
